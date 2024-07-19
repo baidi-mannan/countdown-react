@@ -1,0 +1,23 @@
+
+CREATING TIMER IN VANILA JS IS WAY EASIER THAN REACT JS.......
+or probably you don't know how React Works............. or JS for that matter :)
+
+1. No Rendering if useEffect in not used.
+    - Remove the useEffect and call the interval in the triggerCountDown function.
+    - You will see the startCountDown function is getting called but the values are not changing
+2. The state variable will not get change unless useEffect is called
+    - Asynchronus natureof useState
+3. SetInterval will be getting called without the state variable getting updated.
+4. It is very important to clearout the SetInterval by returning clearInterval in the useEffect, else
+    new interval will be created whenever useEffect is called.
+    - Remove the return from useEffect and You will see the affect (timer seeting from start).
+
+
+5.-------------BEAWARE WHAT TO ADD IN THE useEffect DEPENDENCY------------
+ IF YOU WILL ADD HOUR,MIN as it value is not changing everytime, then useEffect will not be called
+as the value for mins is same. SO BETTER USE the value which is changing or else create a
+new variable and increment it everytime you want to trigger useEffect.
+
+6. React.StrictMode helps in prevention of some errors which might appear in the future release.
+    - It is not good to assign something in the open space,
+    - useEffect is rendered twice to warn the developer to clearout fucntion and event in the return
